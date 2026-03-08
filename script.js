@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('/api/contact', {
+                const response = await fetch('https://safersky.netlify.app/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
