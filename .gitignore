@@ -1,0 +1,6 @@
+# Local Netlify folder
+.netlify
+
+# Original large video files (replaced by compressed versions)
+Video/Loop Intro with Faster Opener fire wind traffic.mp4
+Video/Loop CONTENT.mp4

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaferSky – The Intelligent Airspace for Autonomous Systems</title>
+    <meta name="description"
+        content="SaferSky is a real-time drone safety ecosystem that maps dynamic flight corridors, prevents collisions, and protects civilians on the ground.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ======================================================
+         HEADER / NAVIGATION
+         ====================================================== -->
+    <header class="header" id="site-header">
+        <div class="container nav-container">
+            <!-- Logo — enlarged to 250px as requested, white version on dark bg -->
+            <a href="#hero" class="nav-logo" aria-label="SaferSky Home">
+                <img src="Logo/WHITE LOGO.png" alt="SaferSky" class="logo-img">
+            </a>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#what-is" class="nav-link">What is SaferSky</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#why-safersky" class="nav-link">Why SaferSky</a>
+                <a href="#for-whom" class="nav-link">For Whom</a>
+                <a href="#footer-cta" class="btn btn-primary btn-sm">Request a Demo</a>
+            </nav>
+
+            <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ======================================================
+             HERO SECTION — video background loop
+             ====================================================== -->
+        <section id="hero" class="section hero">
+
+            <!-- Looping video background -->
+            <video class="hero-video" src="Video/Loop Intro compressed.mp4" autoplay muted
+                loop playsinline aria-hidden="true" preload="auto"></video>
+
+            <!-- Dark overlay for text legibility -->
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+            <!-- Subtle radial glow accent -->
+            <div class="hero-glow" aria-hidden="true"></div>
+
+            <div class="container hero-content">
+                <div class="hero-badge reveal" data-delay="0">
+                    <span class="badge-dot" aria-hidden="true"></span>
+                    Real-Time Airspace Intelligence
+                </div>
+
+                <h1 class="reveal" data-delay="100">
+                    The Intelligent Airspace<br>for Autonomous Systems
+                </h1>
+
+                <p class="hero-desc reveal" data-delay="300">
+                    SaferSky is a real-time drone safety ecosystem that maps dynamic flight corridors,
+                    prevents collisions, and protects civilians on the ground.
+                </p>
+
+                <div class="btn-group reveal" data-delay="400">
+                    <a href="#how-it-works" class="btn btn-primary" id="hero-cta">
+                        Learn How It Works
+                        <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator" aria-hidden="true">
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             WHAT IS SAFERSKY
+             ====================================================== -->
+        <section id="what-is" class="section section-bg-secondary">
+            <div class="container">
+                <div class="section-header reveal" data-delay="0">
+                    <span class="eyebrow">What Is SaferSky</span>
+                    <h2>Eyes in the Sky.<br>Feet on the Ground.</h2>
+                </div>
+
+                <div class="what-is-grid">
+                    <div class="what-is-text reveal" data-delay="100">
+                        <p>
+                            SaferSky is a comprehensive airspace safety platform built for the era of autonomous
+                            flight. We provide governments, operators, and emergency services with the tools to
+                            manage drone traffic safely, efficiently, and in real time.
+                        </p>
+                        <p>
+                            Our system delivers dynamic risk mapping, AI-powered hazard detection, and seamless
+                            coordination across civil, municipal, and military airspace — all through a single,
+                            unified interface.
+                        </p>
+
+                        <div class="stat-row">
+                            <div class="stat-item reveal" data-delay="200">
+                                <div class="stat-value">Real-Time</div>
+                                <div class="stat-label">Data Processing</div>
+                            </div>
+                            <div class="stat-item reveal" data-delay="300">
+                                <div class="stat-value">AI-Powered</div>
+                                <div class="stat-label">Hazard Detection</div>
+                            </div>
+                            <div class="stat-item reveal" data-delay="400">
+                                <div class="stat-value">Unified</div>
+                                <div class="stat-label">Single Interface</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Airspace Visualization canvas -->
+                    <div class="airspace-viz reveal" data-delay="200"
+                        aria-label="Live airspace visualization animation">
+                        <div class="viz-label">LIVE AIRSPACE FEED</div>
+                        <canvas id="airspace-canvas"></canvas>
+                        <div class="viz-overlay-bottom">
+                            <span class="viz-badge safe">● SAFE CORRIDORS ACTIVE</span>
+                            <span class="viz-badge danger">● RED ZONES ENFORCED</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             HOW IT WORKS — with real PNG icons
+             ====================================================== -->
+        <section id="how-it-works" class="section">
+            <div class="container">
+                <div class="section-header reveal" data-delay="0">
+                    <span class="eyebrow">How It Works</span>
+                    <h2>From Data to Safe Skies</h2>
+                </div>
+
+                <div class="steps-grid">
+                    <!-- Step 01 -->
+                    <div class="step-card reveal" data-delay="0">
+                        <span class="step-number">01</span>
+                        <div class="step-icon-img">
+                            <img src="Icons/1 DATA ICO.png" alt="Data Collection icon">
+                        </div>
+                        <h3>Data Collection</h3>
+                        <p class="stakeholder-desc">We aggregate real-time data on crowd density, restricted zones,
+                            weather, and infrastructure from multiple authoritative sources.</p>
+                    </div>
+
+                    <!-- Step 02 -->
+                    <div class="step-card reveal" data-delay="100">
+                        <span class="step-number">02</span>
+                        <div class="step-icon-img">
+                            <img src="Icons/2 GEARS ICO.png" alt="Risk Processing icon">
+                        </div>
+                        <h3>Risk Processing</h3>
+                        <p class="stakeholder-desc">Our proprietary algorithm analyzes incoming data, identifies hazard
+                            patterns, and predicts emerging risks before they occur.</p>
+                    </div>
+
+                    <!-- Step 03 -->
+                    <div class="step-card reveal" data-delay="200">
+                        <span class="step-number">03</span>
+                        <div class="step-icon-img">
+                            <img src="Icons/3 CONTROLLER ICO.png" alt="Dynamic Flight Map icon">
+                        </div>
+                        <h3>Dynamic Flight Map</h3>
+                        <p class="stakeholder-desc">A continuously updated map generates safe flight corridors and red
+                            zones — prioritizing civilian safety at every step.</p>
+                    </div>
+
+                    <!-- Step 04 -->
+                    <div class="step-card reveal" data-delay="300">
+                        <span class="step-number">04</span>
+                        <div class="step-icon-img">
+                            <img src="Icons/4 EARTH ICO.png" alt="Red Zone Enforcement icon">
+                        </div>
+                        <h3>Red Zone Enforcement</h3>
+                        <p class="stakeholder-desc">Sensitive locations — airports, prisons, government buildings — are
+                            automatically protected with no-fly zones.</p>
+                    </div>
+
+                    <!-- Step 05 -->
+                    <div class="step-card reveal" data-delay="400">
+                        <span class="step-number">05</span>
+                        <div class="step-icon-img">
+                            <img src="Icons/5 Green EARTH ICO.png" alt="Continuous Learning icon">
+                        </div>
+                        <h3>Continuous Learning</h3>
+                        <p class="stakeholder-desc">As new data flows in, our AI model retrains itself, keeping the map
+                            accurate and responsive to changing conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             WHY SAFERSKY — right panel replaced with Loop CONTENT video
+             ====================================================== -->
+        <section id="why-safersky" class="section section-bg-secondary">
+            <div class="container">
+                <div class="section-header reveal" data-delay="0">
+                    <span class="eyebrow">Why SaferSky</span>
+                    <h2>Built for the Future of the Sky</h2>
+                </div>
+
+                <div class="why-grid">
+                    <!-- Left: text -->
+                    <div class="why-text reveal" data-delay="100">
+                        <p>
+                            The sky is becoming as busy as the road. Drones are already transforming delivery,
+                            agriculture, search and rescue, and urban transport — and that's just the beginning.
+                        </p>
+                        <p>
+                            SaferSky ensures this future is safe. Our platform prevents unauthorized drone activity,
+                            enables emergency landings with coordinated safe corridors, and keeps every flight —
+                            commercial, governmental, or civilian — accountable and protected.
+                        </p>
+
+                        <blockquote class="quote-box reveal" data-delay="200">
+                            <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
+                            </svg>
+                            <p>When a helicopter needs an emergency landing, SaferSky coordinates the corridor in real
+                                time — automatically and safely.</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Right: Loop CONTENT video — plays on hover/click -->
+                    <div class="why-video-wrap reveal" data-delay="200">
+                        <div class="why-video-card" id="why-video-card" role="button" tabindex="0"
+                            aria-label="Play SaferSky content video">
+                            <video id="why-video" src="Video/Loop CONTENT compressed.mp4" loop muted playsinline
+                                preload="metadata"></video>
+                            <!-- Play overlay -->
+                            <div class="play-overlay" id="play-overlay" aria-hidden="true">
+                                <div class="play-btn-circle">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                                <span class="play-label">Hover or click to play</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             FOR WHOM
+             ====================================================== -->
+        <section id="for-whom" class="section">
+            <div class="container">
+                <div class="section-header reveal" data-delay="0">
+                    <span class="eyebrow">For Whom</span>
+                    <h2>One Platform. Every Stakeholder.</h2>
+                </div>
+
+                <div class="stakeholder-grid">
+                    <div class="stakeholder-card reveal" data-delay="0">
+                        <div class="stakeholder-icon" aria-hidden="true">🛸</div>
+                        <div class="stakeholder-title">Drone Operators</div>
+                        <p class="stakeholder-desc">Plan compliant, collision-free routes with live airspace data</p>
+                        <div class="stakeholder-line" aria-hidden="true"></div>
+                    </div>
+                    <div class="stakeholder-card reveal" data-delay="100">
+                        <div class="stakeholder-icon" aria-hidden="true">🏛️</div>
+                        <div class="stakeholder-title">Government &amp; Defense</div>
+                        <p class="stakeholder-desc">Monitor, restrict, and coordinate airspace on demand</p>
+                        <div class="stakeholder-line" aria-hidden="true"></div>
+                    </div>
+                    <div class="stakeholder-card reveal" data-delay="200">
+                        <div class="stakeholder-icon" aria-hidden="true">🚑</div>
+                        <div class="stakeholder-title">Emergency Services</div>
+                        <p class="stakeholder-desc">Secure priority corridors instantly when lives are at stake</p>
+                        <div class="stakeholder-line" aria-hidden="true"></div>
+                    </div>
+                    <div class="stakeholder-card reveal" data-delay="300">
+                        <div class="stakeholder-icon" aria-hidden="true">🏙️</div>
+                        <div class="stakeholder-title">Smart Cities</div>
+                        <p class="stakeholder-desc">Integrate drone infrastructure safely into urban environments</p>
+                        <div class="stakeholder-line" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <!-- Real Partner Logos -->
+                <div class="partner-section reveal" data-delay="200">
+                    <p class="partner-label">TRUSTED BY LEADING ORGANIZATIONS</p>
+                    <div class="logos-banner">
+                        <img src="Partners/1 Beer_Sheva.png" alt="Beer Sheva" class="partner-logo">
+                        <img src="Partners/2 Ministry_of_Education.png" alt="Ministry of Education"
+                            class="partner-logo">
+                        <img src="Partners/3 Yeruham.png" alt="Yeruham" class="partner-logo">
+                        <img src="Partners/4 polict.png" alt="Police" class="partner-logo">
+                        <img src="Partners/5 CanNegev.png" alt="CanNegev" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================================================
+         FOOTER / CTA
+         ====================================================== -->
+    <footer class="footer" id="footer-cta">
+        <div class="footer-cta-section">
+            <div class="container">
+                <div class="footer-cta-inner reveal" data-delay="0">
+                    <h2>Ready to Make Your Airspace Safer?</h2>
+                    <p>
+                        SaferSky offers flexible plans for operators of all sizes, with custom configurations
+                        available for government and enterprise deployments.
+                    </p>
+                    <div class="btn-group">
+                        <a href="demo.html" class="btn btn-primary" id="demo-btn" aria-label="Request a Demo">Request a
+                            Demo</a>
+                        <button class="btn btn-secondary" id="contact-btn" aria-label="Contact Us"
+                            onclick="openContactModal()">Contact Us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-inner">
+                <a href="#hero" class="footer-logo" aria-label="SaferSky Home">
+                    <img src="Logo/WHITE LOGO.png" alt="SaferSky" class="logo-img logo-img--small">
+                </a>
+                <p class="footer-copy">&copy; 2026 SaferSky. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Us Modal -->
+    <div id="contact-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeContactModal()" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <h2>Contact Us</h2>
+                <p>Drop us a short message and we'll get back to you.</p>
+            </div>
+            <form id="contact-form" autocomplete="off">
+                <div class="form-group">
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" required placeholder="How should we address you?">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="contact-subject">Subject</label>
+                    <select id="contact-subject" name="subject" required>
+                        <option value="" disabled selected>Select a topic</option>
+                        <option value="Acquisition / Service Setup">Acquisition / Service Setup</option>
+                        <option value="Partnership">Partnership</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="4" maxlength="400" required
+                        placeholder="Your message... (max 400 characters)"></textarea>
+                    <div class="char-count"><span id="char-current">0</span> / 400</div>
+                </div>
+                <button type="submit" class="btn btn-primary w-full" id="contact-submit"
+                    style="justify-content: center;">
+                    Send Message
+                </button>
+                <div id="contact-status" class="form-status"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

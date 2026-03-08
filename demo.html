@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaferSky – In Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific overrides for the demo page */
+        .demo-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .demo-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(8px) brightness(0.6);
+            z-index: 0;
+        }
+
+        .demo-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(21, 25, 34, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: var(--sp-8) var(--sp-6);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            animation: floatUp 0.8s var(--ease) forwards;
+        }
+
+        .demo-logo {
+            height: 64px;
+            object-fit: contain;
+            margin-bottom: var(--sp-4);
+        }
+
+        .demo-title {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: var(--sp-2);
+        }
+
+        .demo-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: var(--sp-5);
+            max-width: none;
+        }
+
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="demo-page">
+
+    <!-- Background Video Muffled -->
+    <video class="demo-video" src="Video/Loop Intro compressed.mp4" autoplay muted loop
+        playsinline aria-hidden="true"></video>
+
+    <!-- Content Box -->
+    <div class="demo-content">
+        <img src="Logo/WHITE LOGO.png" alt="SaferSky" class="demo-logo">
+        <h1 class="demo-title">Platform in Development</h1>
+        <p class="demo-subtitle">The SaferSky interactive demo is currently being built. Please check back later or
+            contact us for more information.</p>
+
+        <a href="index.html" class="btn btn-primary">
+            Return to Homepage
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd"
+                    d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                    clip-rule="evenodd" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Anti-copy script -->
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+</body>
+
+</html>

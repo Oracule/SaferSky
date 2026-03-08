@@ -1,0 +1,1303 @@
+/* ==========================================================================
+   SaferSky – style.css  (v3 — with video hero, big logo, icons, partner logos)
+   Brand: Dark-mode minimalist premium
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --bg-primary: #0F1115;
+  --bg-secondary: #151922;
+  --surface: #1B2130;
+  --surface-hover: #202840;
+  --text-primary: #E6EAF2;
+  --text-secondary: #A8B0C0;
+  --text-muted: #6B7280;
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  --accent-line: rgba(59, 130, 246, 0.3);
+  --border: #232A3A;
+  --border-bright: #334155;
+
+  /* Spacing (8 px grid) */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-5: 40px;
+  --sp-6: 48px;
+  --sp-8: 64px;
+  --sp-12: 96px;
+  --sp-16: 128px;
+
+  --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 150ms ease-in-out;
+  --t-normal: 250ms ease-in-out;
+  --t-slow: 400ms var(--ease);
+
+  --max-w: 1200px;
+  --nav-h: 280px;
+  /* tall to accommodate 250 px logo */
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Anti-copy protection */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+img,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography
+   -------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--sp-2);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  max-width: 680px;
+}
+
+p+p {
+  margin-top: var(--sp-2);
+}
+
+.eyebrow {
+  display: block;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-2);
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--sp-3);
+}
+
+.section {
+  padding: var(--sp-16) 0;
+}
+
+.section-bg-secondary {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header {
+  margin-bottom: var(--sp-8);
+}
+
+.section-header h2 {
+  max-width: 760px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Scroll-Reveal
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 0 var(--sp-3);
+  height: 48px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+  white-space: nowrap;
+}
+
+.btn-sm {
+  height: 40px;
+  font-size: 0.875rem;
+  padding: 0 var(--sp-2);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-bright);
+}
+
+.btn-secondary:hover {
+  background: var(--surface);
+  border-color: var(--text-secondary);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.btn-group {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   7. Header & Navigation — enlarged logo
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--nav-h);
+  z-index: 200;
+  transition: background var(--t-slow), border-color var(--t-normal);
+  border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+  background: rgba(15, 17, 21, 0.93);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--border);
+}
+
+/* --------------------------------------------------------------------------
+   16. Contact Us Modal
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--sp-8) var(--sp-6);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  transition: transform var(--t-normal) cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+  transition: color var(--t-fast);
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-header {
+  margin-bottom: var(--sp-6);
+  text-align: center;
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  margin-bottom: var(--sp-2);
+}
+
+.modal-header p {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.form-group {
+  margin-bottom: var(--sp-4);
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--sp-2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.form-group select option {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+.char-count {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: var(--sp-1);
+}
+
+.form-status {
+  margin-top: var(--sp-4);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-height: 20px;
+}
+
+.form-status.success {
+  color: #10b981;
+}
+
+.form-status.error {
+  color: #ef4444;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  gap: var(--sp-4);
+}
+
+/* Logo — 250px as requested */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 250px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-img--small {
+  height: 32px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--t-normal);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hamburger */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 26px;
+  height: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--t-fast), opacity var(--t-fast), width var(--t-fast);
+  transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   8. Hero — full-screen video background
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-h);
+  overflow: hidden;
+}
+
+/* The looping video fills the hero completely */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dark overlay — keeps text legible over bright video */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.62);
+  z-index: 1;
+}
+
+/* Radial blue accent glow */
+.hero-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding-top: var(--sp-12);
+  padding-bottom: var(--sp-16);
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.7)
+  }
+}
+
+.hero h1 {
+  margin-bottom: var(--sp-3);
+}
+
+.hero .lead {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--text-primary);
+  font-weight: 400;
+  margin-bottom: var(--sp-2);
+  max-width: none;
+}
+
+.hero-desc {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin-bottom: var(--sp-5);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  animation: fadeInUp 1.5s 1s both;
+  z-index: 3;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  50.001% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+
+  to {
+    opacity: 0.4;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. What is SaferSky
+   -------------------------------------------------------------------------- */
+.what-is-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  align-items: start;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+.stat-item {
+  padding: var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  transition: border-color var(--t-normal), transform var(--t-fast);
+}
+
+.stat-item:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. Airspace Canvas Viz
+   -------------------------------------------------------------------------- */
+.airspace-viz {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: var(--sp-2) var(--sp-2) 0;
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+}
+
+.viz-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  padding: 0 var(--sp-1) var(--sp-1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.viz-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0.2
+  }
+}
+
+#airspace-canvas {
+  flex: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 4px 4px 0 0;
+}
+
+.viz-overlay-bottom {
+  display: flex;
+  gap: var(--sp-2);
+  justify-content: center;
+  padding: var(--sp-1) var(--sp-2);
+  background: rgba(15, 17, 21, 0.6);
+}
+
+.viz-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.viz-badge.safe {
+  color: #22c55e;
+}
+
+.viz-badge.danger {
+  color: #ef4444;
+}
+
+/* --------------------------------------------------------------------------
+   11. How It Works — PNG icon cards
+   -------------------------------------------------------------------------- */
+.steps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+
+.step-card {
+  flex: 1 1 calc(33.333% - var(--sp-3));
+  max-width: calc(33.333% - var(--sp-3));
+  min-width: 280px;
+  position: relative;
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color var(--t-normal), transform var(--t-fast), box-shadow var(--t-normal);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--t-normal);
+}
+
+.step-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.12);
+}
+
+.step-card:hover::before {
+  opacity: 1;
+}
+
+/* Large Number on Left, Large Icon on Right */
+.step-number {
+  order: 1;
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-muted);
+  opacity: 0.15;
+  margin-bottom: var(--sp-4);
+  letter-spacing: -0.05em;
+  transition: color var(--t-normal), opacity var(--t-normal);
+}
+
+.step-card:hover .step-number {
+  color: var(--accent);
+  opacity: 0.3;
+}
+
+.step-icon-img {
+  order: 2;
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon-img img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.25));
+  transition: transform var(--t-normal), filter var(--t-normal);
+}
+
+.step-card:hover .step-icon-img img {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 12px 24px rgba(59, 130, 246, 0.45));
+}
+
+.step-card h3 {
+  order: 3;
+  font-size: 1.25rem;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.step-card p {
+  order: 4;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin: 0;
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   12. Why SaferSky — video panel
+   -------------------------------------------------------------------------- */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+.quote-box {
+  position: relative;
+  margin-top: var(--sp-5);
+  padding: var(--sp-4) var(--sp-5);
+  border-left: 2px solid var(--accent);
+  background: rgba(59, 130, 246, 0.04);
+  border-radius: 0 8px 8px 0;
+}
+
+.quote-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  opacity: 0.5;
+  margin-bottom: var(--sp-2);
+}
+
+.quote-box p {
+  font-size: 1.1875rem;
+  font-style: italic;
+  color: var(--text-primary);
+  max-width: none;
+  margin: 0;
+}
+
+/* Why video container */
+.why-video-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-video-card {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: var(--surface);
+  box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  transition: border-color var(--t-normal), box-shadow var(--t-normal), transform var(--t-fast);
+  aspect-ratio: 16/9;
+}
+
+.why-video-card:hover,
+.why-video-card:focus-visible {
+  border-color: var(--accent-line);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25), 0 16px 48px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+#why-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play overlay */
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 12, 16, 0.45);
+  transition: opacity var(--t-normal);
+  z-index: 2;
+  gap: var(--sp-2);
+}
+
+.why-video-card:hover .play-overlay,
+.why-video-card.playing .play-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.play-btn-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--t-fast), transform var(--t-fast);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.5);
+}
+
+.play-btn-circle svg {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  margin-left: 4px;
+}
+
+.why-video-card:hover .play-btn-circle {
+  background: var(--accent);
+  transform: scale(1.08);
+}
+
+.play-label {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------------------
+   13. For Whom — Stakeholder grid
+   -------------------------------------------------------------------------- */
+.stakeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-8);
+}
+
+.stakeholder-card {
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--t-normal), transform var(--t-fast), box-shadow var(--t-normal);
+}
+
+.stakeholder-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(59, 130, 246, 0.08);
+}
+
+.stakeholder-icon {
+  font-size: 2rem;
+  margin-bottom: var(--sp-2);
+}
+
+.stakeholder-title {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-1);
+}
+
+.stakeholder-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-normal);
+}
+
+.stakeholder-card:hover .stakeholder-line {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   14. Partner Logos — real images, consistent presentation
+   -------------------------------------------------------------------------- */
+.partner-section {
+  text-align: center;
+}
+
+.partner-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-5);
+  max-width: none;
+}
+
+.logos-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-8);
+  flex-wrap: wrap;
+}
+
+.partner-logo {
+  height: 56px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  /* Normalise diverse logos for dark bg: greyscale + brightness boost */
+  filter: grayscale(1) brightness(2) invert(0);
+  opacity: 0.45;
+  transition: filter var(--t-normal), opacity var(--t-normal), transform var(--t-fast);
+}
+
+.partner-logo:hover {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+/* Specifically enlarge the CanNegev logo to match visual weight */
+.partner-logo:nth-child(5) {
+  transform: scale(1.35);
+}
+
+.partner-logo:nth-child(5):hover {
+  transform: scale(1.42);
+}
+
+
+/* --------------------------------------------------------------------------
+   15. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--border);
+}
+
+.footer-cta-section {
+  padding: var(--sp-16) 0 var(--sp-12);
+  text-align: center;
+  background: var(--bg-secondary);
+}
+
+.footer-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.footer-cta-inner h2 {
+  margin-bottom: var(--sp-3);
+}
+
+.footer-cta-inner p {
+  margin: 0 auto var(--sp-5);
+  max-width: none;
+}
+
+.footer-cta-inner .btn-group {
+  justify-content: center;
+}
+
+.footer-bottom-bar {
+  padding: var(--sp-4) 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: none;
+}
+
+.footer-legal {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.footer-legal a {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  transition: color var(--t-fast);
+}
+
+.footer-legal a:hover {
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   16. Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stakeholder-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .what-is-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 140px;
+    /* reduced nav height on mobile */
+    --sp-16: 96px;
+    --sp-12: 64px;
+    --sp-8: 48px;
+  }
+
+  .logo-img {
+    height: 120px;
+  }
+
+  /* scale logo down on mobile */
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: rgba(21, 25, 34, 0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--sp-3) var(--sp-3) var(--sp-4);
+    gap: var(--sp-1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: var(--sp-1) 0;
+    font-size: 1rem;
+  }
+
+  .nav-links .btn {
+    margin-top: var(--sp-2);
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stakeholder-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--sp-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    height: 80px;
+  }
+
+  :root {
+    --nav-h: 100px;
+  }
+
+  .stakeholder-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logos-banner {
+    gap: var(--sp-4);
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    justify-content: center;
+  }
+}
