@@ -354,25 +354,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactStatus.className = 'form-status';
             }
 
-            const formData = {
-                name: document.getElementById('contact-name').value,
-                email: document.getElementById('contact-email').value,
-                subject: document.getElementById('contact-subject').value,
-                message: document.getElementById('contact-message').value
-            };
+            const name    = document.getElementById('contact-name').value;
+            const email   = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+
+            const BOT_TOKEN = '8785707619:AAFoZGLJ9JiCA5fPIN37Xuu9Psn7nAzNmPg';
+            const CHAT_ID   = '5614029818';
+
+            const text = `🚀 *New SaferSky Contact Request*\n\n` +
+                `👤 *Name:* ${name}\n` +
+                `📧 *Email:* ${email}\n` +
+                `📋 *Subject:* ${subject}\n` +
+                `💬 *Message:*\n${message}`;
 
             try {
-                const response = await fetch('https://safersky.netlify.app/api/contact', {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: text,
+                        parse_mode: 'Markdown'
+                    })
                 });
 
                 const result = await response.json();
 
-                if (response.ok) {
+                if (result.ok) {
                     if (contactStatus) {
                         contactStatus.textContent = "Thank you! Your message has been sent.";
                         contactStatus.classList.add('success');
@@ -381,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         closeContactModal();
                     }, 2500);
                 } else {
-                    throw new Error(result.error || 'Failed to send');
+                    throw new Error(result.description || 'Failed to send');
                 }
             } catch (error) {
                 console.error("Submission error:", error);
